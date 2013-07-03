@@ -1,17 +1,33 @@
 ﻿@defaultColor: #000;
 @defaultFontSize: 50px;
 
-.mediaMinWidth(@size, @bgcolor: @defaultColor, @fontSize: @defaultFontSize) {
-    @media only screen and (min-width: @size) {
-        #main {
-            width: @size;
-            background-color: @bgcolor;
-            font-size: @fontSize;
+.customLayout(@size, @bgColor: @defaultColor, @QueryName: '') {
+    #main {
+        width: @size;
+        background-color: @bgColor;
+        font-size: @defaultFontSize;
 
-            &:after {
-                content: '@{size}';
-            }
+        &:after {
+            content: '@{size} @{QueryName}';
         }
+    }
+}
+
+.mediaDesktop(@size, @bgColor) {
+    @media only screen and (min-width: @size) {
+        .customLayout(@size, @bgColor, 'Desktop');
+    }
+}
+
+.mediaTablet(@minWidth, @maxWidth, @orientation, @dpr, @device) {
+    @media only screen and (min-device-width : @minWidth) and (max-device-width : @maxWidth) and (orientation : @orientation) and (-webkit-min-device-pixel-ratio: @dpr) {
+        .customLayout(@minWidth, @defaultColor, 'Tablet @{device} @{orientation}');
+    }
+}
+
+.mediaMobile(@minWidth, @maxWidth, @orientation, @dpr, @device) {
+    @media only screen and (min-device-width : @minWidth) and (max-device-width : @maxWidth) and (orientation : @orientation) and (-webkit-min-device-pixel-ratio: @dpr) {
+        .customLayout(@minWidth, @defaultColor, 'Mobile @{device} @{orientation}');
     }
 }
 
@@ -29,7 +45,7 @@ body {
 #main {
     margin: auto;
     padding: 0;
-    width: 320px;
+    min-width: 320px;
     height: 100%;
     background-color: @defaultColor;
     color: #eee;
@@ -42,27 +58,30 @@ body {
     box-shadow: #555 0px 0px 10px;
 
     &:after {
-        content: '320px';
+        content: 'min 320px';
         padding: 50px;
         display: block;
     }
 }
 
-.mediaMinWidth(480px, green);
-.mediaMinWidth(533px, green); // s3 mini
-.mediaMinWidth(568px, green); // iphone 5
-.mediaMinWidth(640px, blue);
-.mediaMinWidth(720px, yellow);
-.mediaMinWidth(768px, yellow);
-.mediaMinWidth(800px, yellow);
-.mediaMinWidth(854px, yellow);
-.mediaMinWidth(960px, purple);
-.mediaMinWidth(1024px, brown);
-.mediaMinWidth(1136px, gray);
-.mediaMinWidth(1280px, orange);
-.mediaMinWidth(1366px, orange);
-.mediaMinWidth(1920px, pink);
-
+// Desktop
+.mediaDesktop(320px, white);
+.mediaDesktop(480px, green);
+.mediaDesktop(533px, green);
+.mediaDesktop(568px, green);
+.mediaDesktop(640px, blue);
+.mediaDesktop(720px, yellow);
+.mediaDesktop(768px, yellow);
+.mediaDesktop(800px, yellow);
+.mediaDesktop(854px, yellow);
+.mediaDesktop(960px, purple);
+.mediaDesktop(1024px, brown);
+.mediaDesktop(1136px, gray);
+.mediaDesktop(1280px, orange);
+.mediaDesktop(1366px, orange);
+.mediaDesktop(1920px, pink);
+/*
+// Tablets
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) {
     #main {
         &:after {
@@ -78,7 +97,6 @@ body {
         }
     }
 }
-
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2) {
     #main {
@@ -103,3 +121,127 @@ body {
         }
     }
 }
+
+// Celulares
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) {
+
+    #main {
+        width: 320px;
+        background-color: @defaultColor;
+        font-size: @defaultFontSize;
+
+        &:after {
+            content: '320px iPhone 3GS / iPod touch portrait';
+        }
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1) {
+
+    #main {
+        width: 480px;
+        background-color: @defaultColor;
+        font-size: @defaultFontSize;
+
+        &:after {
+            content: '480px iPhone 3GS / iPod touch landscape';
+        }
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+
+    #main {
+        width: 320px;
+        background-color: @defaultColor;
+        font-size: @defaultFontSize;
+
+        &:after {
+            content: '320px iPhone 4/4s portrait';
+        }
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+
+    #main {
+        width: 480px;
+        background-color: @defaultColor;
+        font-size: @defaultFontSize;
+
+        &:after {
+            content: '480px iPhone 4/4s landscape';
+        }
+    }
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1.5) {
+
+    #main {
+        width: 480px;
+
+        &:after {
+            content: "Celular Sony Ericson Android Portrait";
+        }
+    }
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
+
+    #main {
+        width: 480px;
+
+        &:after {
+            content: "Celular Sony Ericson Android Landscape";
+        }
+    }
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 1280px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+
+    #main {
+        width: 720px;
+
+        &:after {
+            content: "Celular Samsung Galaxy S3 Portrait";
+        }
+    }
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 1280px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+
+    #main {
+        width: 1280px;
+
+        &:after {
+            content: "Celular Samsung Galaxy S3 Landscape";
+        }
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+
+    #main {
+        width: 320px;
+        background-color: @defaultColor;
+        font-size: @defaultFontSize;
+
+        &:after {
+            content: '320px iPhone 5 portrait';
+        }
+    }
+}
+    
+@media only screen and (min-device-width : 480px) and (max-device-width : 1280px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+
+    #main {
+        width: 568px;
+        background-color: @defaultColor;
+        font-size: @defaultFontSize;
+
+        &:after {
+            content: '568px iPhone 5 landscape';
+        }
+    }
+}
+*/
