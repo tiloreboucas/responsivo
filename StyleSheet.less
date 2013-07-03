@@ -19,18 +19,6 @@
     }
 }
 
-.mediaTablet(@minWidth, @maxWidth, @orientation, @dpr, @device) {
-    @media only screen and (min-device-width : @minWidth) and (max-device-width : @maxWidth) and (orientation : @orientation) and (-webkit-min-device-pixel-ratio: @dpr) {
-        .customLayout(@minWidth, @defaultColor, 'Tablet @{device} @{orientation}');
-    }
-}
-
-.mediaMobile(@minWidth, @maxWidth, @orientation, @dpr, @device) {
-    @media only screen and (min-device-width : @minWidth) and (max-device-width : @maxWidth) and (orientation : @orientation) and (-webkit-min-device-pixel-ratio: @dpr) {
-        .customLayout(@minWidth, @defaultColor, 'Mobile @{device} @{orientation}');
-    }
-}
-
 * {
     margin: 0;
     padding: 0;
