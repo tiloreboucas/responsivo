@@ -1,0 +1,105 @@
+﻿@defaultColor: #000;
+@defaultFontSize: 50px;
+
+.mediaMinWidth(@size, @bgcolor: @defaultColor, @fontSize: @defaultFontSize) {
+    @media only screen and (min-width: @size) {
+        #main {
+            width: @size;
+            background-color: @bgcolor;
+            font-size: @fontSize;
+
+            &:after {
+                content: '@{size}';
+            }
+        }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: #ccc;
+    height: 100%;
+}
+
+#main {
+    margin: auto;
+    padding: 0;
+    width: 320px;
+    height: 100%;
+    background-color: @defaultColor;
+    color: #eee;
+    text-align: center;
+    -webkit-text-shadow: 1px 1px 1px #333;
+    text-shadow: 1px 1px 1px #333;
+    font-weight: bold;
+    font-size: @defaultFontSize;
+    -webkit-box-shadow: #555 0px 0px 10px;
+    box-shadow: #555 0px 0px 10px;
+
+    &:after {
+        content: '320px';
+        padding: 50px;
+        display: block;
+    }
+}
+
+.mediaMinWidth(480px, green);
+.mediaMinWidth(533px, green); // s3 mini
+.mediaMinWidth(568px, green); // iphone 5
+.mediaMinWidth(640px, blue);
+.mediaMinWidth(720px, yellow);
+.mediaMinWidth(768px, yellow);
+.mediaMinWidth(800px, yellow);
+.mediaMinWidth(854px, yellow);
+.mediaMinWidth(960px, purple);
+.mediaMinWidth(1024px, brown);
+.mediaMinWidth(1136px, gray);
+.mediaMinWidth(1280px, orange);
+.mediaMinWidth(1366px, orange);
+.mediaMinWidth(1920px, pink);
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    #main {
+        &:after {
+            content: "iPad 1 e 2 Portrait";
+        }
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    #main {
+        &:after {
+            content: "iPad 1 e 2 Landscape";
+        }
+    }
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    #main {
+        &:after {
+            content: "iPad 3 e 4";
+        }
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    #main {
+        &:after {
+            content: "Retina iPad in landscape";
+        }
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    #main {
+        &:after {
+            content: "Retina iPad in portrait";
+        }
+    }
+}

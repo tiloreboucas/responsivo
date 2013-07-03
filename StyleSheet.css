@@ -1,0 +1,194 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  background-color: #ccc;
+  height: 100%;
+}
+#main {
+  margin: auto;
+  padding: 0;
+  width: 320px;
+  height: 100%;
+  background-color: #000000;
+  color: #eee;
+  text-align: center;
+  -webkit-text-shadow: 1px 1px 1px #333;
+  text-shadow: 1px 1px 1px #333;
+  font-weight: bold;
+  font-size: 50px;
+  -webkit-box-shadow: #555 0px 0px 10px;
+  box-shadow: #555 0px 0px 10px;
+}
+#main:after {
+  content: '320px';
+  padding: 50px;
+  display: block;
+}
+@media only screen and (min-width: 480px) {
+  #main {
+    width: 480px;
+    background-color: #008000;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '480px';
+  }
+}
+@media only screen and (min-width: 533px) {
+  #main {
+    width: 533px;
+    background-color: #008000;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '533px';
+  }
+}
+@media only screen and (min-width: 568px) {
+  #main {
+    width: 568px;
+    background-color: #008000;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '568px';
+  }
+}
+@media only screen and (min-width: 640px) {
+  #main {
+    width: 640px;
+    background-color: #0000ff;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '640px';
+  }
+}
+@media only screen and (min-width: 720px) {
+  #main {
+    width: 720px;
+    background-color: #ffff00;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '720px';
+  }
+}
+@media only screen and (min-width: 768px) {
+  #main {
+    width: 768px;
+    background-color: #ffff00;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '768px';
+  }
+}
+@media only screen and (min-width: 800px) {
+  #main {
+    width: 800px;
+    background-color: #ffff00;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '800px';
+  }
+}
+@media only screen and (min-width: 854px) {
+  #main {
+    width: 854px;
+    background-color: #ffff00;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '854px';
+  }
+}
+@media only screen and (min-width: 960px) {
+  #main {
+    width: 960px;
+    background-color: #800080;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '960px';
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #main {
+    width: 1024px;
+    background-color: #a52a2a;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '1024px';
+  }
+}
+@media only screen and (min-width: 1136px) {
+  #main {
+    width: 1136px;
+    background-color: #808080;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '1136px';
+  }
+}
+@media only screen and (min-width: 1280px) {
+  #main {
+    width: 1280px;
+    background-color: #ffa500;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '1280px';
+  }
+}
+@media only screen and (min-width: 1366px) {
+  #main {
+    width: 1366px;
+    background-color: #ffa500;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '1366px';
+  }
+}
+@media only screen and (min-width: 1920px) {
+  #main {
+    width: 1920px;
+    background-color: #ffc0cb;
+    font-size: 50px;
+  }
+  #main:after {
+    content: '1920px';
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  #main:after {
+    content: "iPad 1 e 2 Portrait";
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  #main:after {
+    content: "iPad 1 e 2 Landscape";
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  #main:after {
+    content: "iPad 3 e 4";
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  #main:after {
+    content: "Retina iPad in landscape";
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  #main:after {
+    content: "Retina iPad in portrait";
+  }
+}
